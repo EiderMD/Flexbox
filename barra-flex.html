@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>barra flex</title>
+  <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  <style>
+    html {
+        font-family: 'oxigen', sans-serif;
+    }
+    body {
+        margin: 0px;
+    }
+
+    .barra {
+        background-color: #415068;
+    }
+
+    .barra div {
+        display: none;
+    }
+
+    .barra .toggle, 
+    .barra .logo {
+        display: inline-block;
+    }
+
+    .barra .link {
+        display: block;
+        text-align: center;
+        padding: 1em;
+        text-decoration: none;
+        background-color: #223047;
+        color: white;
+    }
+    
+    .barra .link:hover, 
+    .barra .link:active {
+        background-color: white;
+        color: #223047;
+    }
+
+    .barra .logo {
+        width: 10em;
+        text-align: center;
+        padding: 1em;
+        color: white;
+    }
+
+    .barra a {
+        text-decoration: none;
+    }
+
+    .barra .toggle {
+        padding: 1em;
+        color: black;
+    }
+
+    @media (min-width: 48em) {
+        .barra {
+            display: flex;
+        }
+
+        .barra div {
+            display: flex;
+        }
+        .barra .izquierda,
+        .barra .derecha {
+            display: flex;
+            flex: 1;
+        }
+        .barra .link {
+            width: auto;
+        }
+        .barra .derecha {
+            justify-content: flex-end;
+        }
+        .barra .toggle {
+            display: none;
+        }
+    }
+
+    @media (max-width: 48em) {
+        .barra.active .toggle {
+            background-color: #223047;
+            color: white;
+        }
+        .barra .logo {
+            text-align: left;
+        }
+        .barra.active div {
+            display: block;
+        }
+    }
+
+  </style>
+</head>
+
+<body>
+    <div class="barra">
+        <a href="#" class="toggle" id="icononav">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="logo">MyName</a>
+
+        <div class="izquierda">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+        </div>
+
+        <div class="derecha">        
+            <a href="#" class="link">Link 3</a>
+        </div>
+       
+    </div>
+</body>
+
+<script>
+    const icononav = document.querySelector('#icononav');
+    icononav.addEventListener('click', (e) => {
+        icononav.parentElement.classList.toggle('active');
+    })
+</script>
+
+</html>
